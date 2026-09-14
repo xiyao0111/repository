@@ -1,0 +1,23 @@
+{
+  "skill_name": "cdash-cdisc-mapping",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "In Medidata Rave, the Form OID is TRNLS and the question is 'How many new lesions are present?'. What should the Field OID be, and how should it map to SDTM?",
+      "expected_output": "Uses TR context and recommends TRLESNUM with TRTESTCD=LESNUM, TRTEST=Number of Lesions, TRORRES/TRSTRESN result mapping; distinguishes the recommended Rave OID from a CDISC-mandated variable.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "The CRF asks 'Are any new lesions present?' on an oncology response assessment form, but I have not provided the Form OID or intended domain. Give me the Field OID.",
+      "expected_output": "Does not confuse an indicator with a lesion count and does not assert a definitive Field OID without form/domain and sponsor convention; explains the TU/TR/RS ambiguity and asks only material validation questions.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "Review this proposed mapping: Form OID TRNLS, Field OID NEWLSCNT, question 'How many new lesions are present?', SDTM variable TRLESNUM.",
+      "expected_output": "Explains that TRLESNUM is not an SDTM dataset column, corrects the mapping to TRTESTCD=LESNUM and result variables, and recommends TRLESNUM as the Rave Field OID if consistent with sponsor standards.",
+      "files": []
+    }
+  ]
+}
